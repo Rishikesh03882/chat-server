@@ -6,6 +6,8 @@ import { Socket } from 'dgram';
 
 const app = express();
 
+const allowedOrigin =`https://chatbot-chi-two-88.vercel.app/`;
+
 const server = http.createServer(app);
 
 const io = new Server(server, {
