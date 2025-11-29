@@ -6,7 +6,7 @@ import { Socket } from 'dgram';
 
 const app = express();
 
-
+const FRONTEND_URL = "https://chatbot-socketio.vercel.app";
 
 app.get('/', (req, res) => {
     res.status(200).json({ 
@@ -19,7 +19,7 @@ const server = http.createServer(app);
 
 const io = new Server(server, {
     cors: {
-        origin: "https://chatbot-chi-two-88.vercel.app/",
+        origin: FRONTEND_URL,
         methods: ["GET", "PUT"]
     }
 })
@@ -46,6 +46,4 @@ io.on("connection", (Socket) => {
 
 app.use(cors());
 
-server.listen(1000, () => {
-    console.log("Server is running on port 1000");
-})
+module.exports = server;
