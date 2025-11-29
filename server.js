@@ -8,6 +8,13 @@ const app = express();
 
 const allowedOrigin =`https://chatbot-chi-two-88.vercel.app/`;
 
+app.get('/', (req, res) => {
+    res.status(200).json({ 
+        status: 'OK', 
+        message: 'Socket.IO Server is running. Use a client to connect via WebSocket.' 
+    });
+});
+
 const server = http.createServer(app);
 
 const io = new Server(server, {
@@ -39,4 +46,6 @@ io.on("connection", (Socket) => {
 
 app.use(cors());
 
-server.listen(1000, (console.log("Server is running on port 1000")))
+server.listen(1000, () => {
+    console.log("Server is running on port 1000");
+})
