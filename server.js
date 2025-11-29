@@ -6,7 +6,7 @@ import { Socket } from 'dgram';
 
 const app = express();
 
-const allowedOrigin =`https://chatbot-chi-two-88.vercel.app/`;
+
 
 app.get('/', (req, res) => {
     res.status(200).json({ 
@@ -19,7 +19,7 @@ const server = http.createServer(app);
 
 const io = new Server(server, {
     cors: {
-        origin: "http://localhost:5173",
+        origin: "https://chatbot-chi-two-88.vercel.app/",
         methods: ["GET", "PUT"]
     }
 })
